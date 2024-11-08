@@ -9,15 +9,14 @@ interface ContainerProps {
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   const [ 동전, 동전추가 ] = useState(0);
-  const [ 진동기능, 진동기능전환 ] = useState(false);
 
-  const hapticsImpactLight = async () => {
-    await Haptics.impact({ style: ImpactStyle.Light });
+  const hapticsImpactHeavy = async () => {
+    await Haptics.impact({ style: ImpactStyle.Heavy });
   };
 
   async function 동전얻기() {
     동전추가(동전 + 1);
-    await hapticsImpactLight();
+    await hapticsImpactHeavy();
   }
 
   return (
