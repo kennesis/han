@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IonButton } from '@ionic/react';
+import { Capacitor } from '@capacitor/core';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import './ExploreContainer.css';
 
@@ -16,8 +17,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
 
   async function 동전얻기() {
     동전추가(동전 + 1);
-    await hapticsImpactHeavy();
+    if(Capacitor.isNativePlatform()) await hapticsImpactHeavy();
   }
+
+  useEffect(() => {
+    alert(Capacitor.isNativePlatform());
+  }, []);
 
   return (
     <div className="container">
