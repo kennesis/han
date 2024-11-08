@@ -14,7 +14,10 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
 
   function 동전얻기() {
     동전추가(동전 + 1);
-    if(진동기능) Haptics.impact({ style: ImpactStyle.Light });
+    if(진동기능) {
+      alert('진동');
+      Haptics.impact({ style: ImpactStyle.Light });
+    }
   }
 
   useEffect(() => {
