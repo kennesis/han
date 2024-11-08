@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { IonButton } from '@ionic/react';
 import { Capacitor } from '@capacitor/core';
-import { Haptics } from '@capacitor/haptics';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import './ExploreContainer.css';
 
 interface ContainerProps {
@@ -14,7 +14,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
 
   function 동전얻기() {
     동전추가(동전 + 1);
-    if(진동기능) Haptics.vibrate();
+    if(진동기능) Haptics.impact({ style: ImpactStyle.Light });
   }
 
   useEffect(() => {
